@@ -15,11 +15,17 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  css: [],
+  css: [
+    '@/assets/scss/main.scss'
+  ],
+  styleResources: {
+    scss: ['~/assets/scss/mixins/index.scss', '~/assets/scss/_color.scss']
+  },
   plugins: [],
   components: true,
   buildModules: [
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/style-resources'
   ],
   modules: [],
   build: {}

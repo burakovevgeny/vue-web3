@@ -1,7 +1,5 @@
 <template>
-  <div class="layout">
-    <nuxt />
-  </div>
+  <nuxt />
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
@@ -12,5 +10,3 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class Default extends Vue {
 }
 </script>
-<style lang="scss" scoped>
-</style>
