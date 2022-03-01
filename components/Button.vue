@@ -7,12 +7,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({
-  name: 'Button'
+  name: 'BaseButton'
 })
-export default class Button extends Vue {
+export default class BaseButton extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+
 button {
   display: flex;
   align-items: center;
@@ -30,4 +31,5 @@ button {
     transform: scale(0.99);
   }
 }
+
 </style>
