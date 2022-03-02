@@ -1,6 +1,6 @@
 <template>
   <main>
-    <base-button class="connect">
+    <base-button class="connect" @click="connectToMetaMask">
       connect wallet
     </base-button>
     <div class="currency">
@@ -29,6 +29,7 @@
       <h4>Your transactions</h4>
       <transactions />
     </div>
+    <notifications />
   </main>
 </template>
 <script lang="ts">
@@ -37,6 +38,7 @@ import BaseButton from '~/components/Button.vue'
 import BaseInput from '~/components/Input.vue'
 import BaseSelect from '~/components/Select.vue'
 import Transactions from '~/components/Transactions.vue'
+import { connectToWallet } from '~/utils/web3'
 
 @Component({
   name: 'Landing',
@@ -62,6 +64,10 @@ export default class Landing extends Vue {
       title: 'Transfer'
     }
   ]
+
+  public connectToMetaMask () {
+    connectToWallet()
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -1,15 +1,19 @@
 <template>
-  <button>
+  <button @click="onClick">
     <slot />
   </button>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Emit, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'BaseButton'
 })
 export default class BaseButton extends Vue {
+  @Emit('click')
+  public onClick (event: Event) {
+    return event
+  }
 }
 </script>
 <style lang="scss" scoped>

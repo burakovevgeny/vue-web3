@@ -1,5 +1,4 @@
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'vue-web3',
     htmlAttrs: {
@@ -21,7 +20,10 @@ export default {
   styleResources: {
     scss: ['~/assets/scss/mixins/index.scss', '~/assets/scss/_color.scss']
   },
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/notifications-ssr', ssr: true },
+    { src: '~/plugins/notifications-client', ssr: false }
+  ],
   components: true,
   buildModules: [
     '@nuxt/typescript-build',
