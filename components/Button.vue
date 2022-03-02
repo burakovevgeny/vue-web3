@@ -30,6 +30,10 @@ button {
   &:active {
     transform: scale(0.99);
   }
+
+  @include _767 {
+    font-size: 14px;
+  }
 }
 
 </style>

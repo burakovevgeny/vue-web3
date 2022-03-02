@@ -91,6 +91,10 @@ main {
     gap: 43px;
     font-size: 18px;
     line-height: 21px;
+
+    @include _767 {
+      font-size: 14px;
+    }
   }
 
   .buttons {
@@ -107,6 +111,10 @@ main {
       font-weight: bold;
       font-size: 22px;
       line-height: 26px;
+
+      @include _767 {
+        font-size: 16px;
+      }
     }
   }
 }

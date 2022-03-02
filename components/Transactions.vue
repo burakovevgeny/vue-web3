@@ -43,19 +43,30 @@ export default class Transactions extends Vue {
 <style lang="scss" scoped>
 
 .transactions {
-
   width: 100%;
 
   .transaction {
     display: flex;
     gap: 39px;
-    height: 60px;
+    height: 100%;
     background: $gray;
     padding: 11px 20px;
+
+    @include _767 {
+      flex-direction: column;
+    }
 
     p {
       display: flex;
       flex-direction: column;
+
+      @include _767 {
+        flex-direction: row;
+        gap: 20px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 

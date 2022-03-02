@@ -34,7 +34,7 @@ export default class BaseSelect extends Vue {
 
 select {
   min-width: 144px;
-  height: 70px;
+  height: 74px;
   background-color: $blue;
   color: $white;
   font-weight: bold;
@@ -54,6 +54,12 @@ select {
   &:active {
     border: none;
     outline: none;
+  }
+
+  @include _767 {
+    height: 54px;
+    font-size: 12px;
+    padding: 11px 16px 11px 14px;
   }
 }
 

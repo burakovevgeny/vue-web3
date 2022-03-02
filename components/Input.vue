@@ -25,6 +25,10 @@ export default class BaseInput extends Vue {
   label {
     font-size: 18px;
     line-height: 21px;
+
+    @include _767 {
+      font-size: 12px;
+    }
   }
 
   input {
@@ -37,6 +41,13 @@ export default class BaseInput extends Vue {
     background: $gray;
     outline: none;
     border: none;
+
+    @include _767 {
+      height: 54px;
+      font-size: 12px;
+      padding: 11px;
+      margin-top: 5px;
+    }
   }
 }
 
