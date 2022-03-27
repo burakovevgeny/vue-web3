@@ -1,33 +1,43 @@
 <template>
-  <select :name="name">
-    <option v-for="option in selectOptions" :key="option.value">
-      {{ option.title }}
+  <select
+    :name="name"
+    :disabled="disabled"
+    @change="onSelectChange"
+  >
+    <option
+      v-for="(token, index) in tokens"
+      :key="token.address"
+      :value="index"
+    >
+      {{ token.symbol }}
     </option>
   </select>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
-
-interface Options {
-  value: number,
-  title: string
-}
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'BaseSelect'
 })
 export default class BaseSelect extends Vue {
-  @Prop({ default: '', required: true }) readonly name!: string
-  public selectOptions: Array<Options> = [
-    {
-      value: 0,
-      title: 'test'
-    },
-    {
-      value: 1,
-      title: 'test2'
-    }
-  ]
+  @Prop({
+    default: '',
+    required: true
+  }) readonly name!: string
+
+  @Prop({
+    default: {},
+    required: true
+  }) readonly tokens!: any
+
+  @Prop({
+    default: false
+  }) readonly disabled!: boolean
+
+  @Emit('input')
+  public onSelectChange (event: any) {
+    return this.tokens[event.target.value]
+  }
 }
 </script>
 <style lang="scss" scoped>

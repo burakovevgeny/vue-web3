@@ -1,15 +1,22 @@
 <template>
-  <button @click="onClick">
+  <button
+    :disabled="disabled"
+    @click="onClick"
+  >
     <slot />
   </button>
 </template>
 <script lang="ts">
-import { Component, Emit, Vue } from 'vue-property-decorator'
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'BaseButton'
 })
 export default class BaseButton extends Vue {
+  @Prop({
+    default: false
+  }) readonly disabled!: boolean
+
   @Emit('click')
   public onClick (event: Event) {
     return event
@@ -33,6 +40,10 @@ button {
 
   &:active {
     transform: scale(0.99);
+  }
+
+  &:disabled {
+    background: transparentize($blue, 0.3);
   }
 
   @include _767 {

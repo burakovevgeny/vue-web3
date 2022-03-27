@@ -1,20 +1,38 @@
 <template>
   <div class="base-input">
     <label :for="label">{{ label }}</label>
-    <input :id="label" :placeholder="placeholder" :value="value" type="text">
+    <input
+      :id="label"
+      :placeholder="placeholder"
+      :value="value"
+      type="text"
+      @input="onInputChange"
+    >
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Emit, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
   name: 'BaseInput'
 })
 
 export default class BaseInput extends Vue {
-  @Prop({ default: '', required: true }) readonly label!: string
+  @Prop({
+    default: '',
+    required: true
+  }) readonly label!: string
+
   @Prop({ default: '' }) readonly placeholder!: string
-  @Prop({ default: '', required: true }) readonly value!: string
+  @Prop({
+    default: '',
+    required: true
+  }) readonly value!: string
+
+  @Emit('input')
+  onInputChange ({ target }: { target: HTMLInputElement }) {
+    return target.value
+  }
 }
 </script>
 <style lang="scss" scoped>
